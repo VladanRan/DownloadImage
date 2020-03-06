@@ -1,2 +1,2 @@
 # DownloadImage
-https://travis-ci.com/VladanRan/DownloadImage.svg?branch=master
+[![Build Status](https://travis-ci.com/VladanRan/DownloadImage.svg?branch=master)](https://travis-ci.com/VladanRan/DownloadImage)
