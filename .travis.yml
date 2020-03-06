@@ -2,7 +2,6 @@ language: objective-c
 osx_image: xcode11.3
 podfile: /Users/vladan.randjelovic/Documents/DownloadImage/Podfile
 before_install:
-- pod install
 - brew tap oclint/formulae
 - brew install oclint
 script:
