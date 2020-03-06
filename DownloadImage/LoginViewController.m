@@ -11,6 +11,7 @@
 @implementation LoginViewController
 @synthesize userNameTF;
 @synthesize passwordTF;
+@synthesize credentialsDictionary;
 NSString * username;
 NSString * password;
 NSString * usernameMsg =@"Username cant be empty and must contain at least 4 characters!";
@@ -19,6 +20,7 @@ NSString *passMsg =@"Password cant be empty and must contain at least 4 characte
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    credentialsDictionary = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"password", nil] forKeys:[NSArray arrayWithObjects:@"username", nil]];
     // Do any additional setup after loading the view.
 }
 
@@ -39,7 +41,9 @@ NSString *passMsg =@"Password cant be empty and must contain at least 4 characte
 }
 
 - (IBAction)login:(id)sender {
-    
+    if ([[credentialsDictionary objectForKey:userNameTF.placeholderString] isEqualTo:passwordTF.placeholderString]) {
+        [self showSimpleCriticalAlert:passMsg];
+    }
     if ([self validateUsername:username andPassword:password]) {
         NSViewController *mainController = [self.storyboard instantiateControllerWithIdentifier:@"mainView"];
         [self.view.window setContentViewController:mainController];
@@ -71,15 +75,6 @@ NSString *passMsg =@"Password cant be empty and must contain at least 4 characte
 }
 - (void)alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
- /*
- The following options are deprecated in 10.9. Use NSAlertFirstButtonReturn instead
- NSAlertDefaultReturn = 1,
- NSAlertAlternateReturn = 0,
- NSAlertOtherReturn = -1,
- NSAlertErrorReturn = -2
- NSOKButton = 1, // NSModalResponseOK should be used
- NSCancelButton = 0 // NSModalResponseCancel should be used
- */
     if (returnCode == NSModalResponseOK)
  {
  NSLog(@"(returnCode == NSOKButton)");

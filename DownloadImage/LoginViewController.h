@@ -11,6 +11,7 @@
 @interface LoginViewController : NSViewController
 @property (weak) IBOutlet NSTextField *userNameTF;
 @property (weak) IBOutlet NSSecureTextField *passwordTF;
+@property NSDictionary * credentialsDictionary;
 
 - (IBAction)loginUserName:(id)sender;
 - (IBAction)loginPassword:(NSSecureTextField *)sender;

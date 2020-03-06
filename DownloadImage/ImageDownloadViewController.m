@@ -28,17 +28,7 @@
 
 - (IBAction)download:(id)sender {
     [self createDownloadDirectory:@"DownloadedImages"];
-//    NSURLComponents *components;
-//    if (downloadLink.placeholderString != nil) {
-//        components = [[NSURLComponents alloc] initWithString:downloadLink.placeholderString];
-//    }
-//    if (!components) {
-//        NSLog(@"You must enter a valid url format for tracking domain!");
-//    } else if (!components.scheme) {
-//        if (([downloadLink.placeholderString rangeOfString:@"https://"].location == NSNotFound) || ([downloadLink.placeholderString rangeOfString:@"http://"].location == NSNotFound)) {
-//        self.downloadLink.placeholderString = [NSString stringWithFormat:@"https://%@",downloadLink.placeholderString];
-//        }
-//    }
+
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
 
